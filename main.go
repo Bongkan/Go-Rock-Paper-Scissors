@@ -9,7 +9,6 @@ import (
 func main() {
 	var choices = []string{"rock", "paper", "scissors"}
 	rand.Seed(time.Now().UnixNano())
-	// choice := choices[rand.Intn(len(choices))]
 	userScore := 0
 	computerScore := 0
 	println("welcome to rock, paper, scissors")
@@ -17,6 +16,7 @@ func main() {
 	for {
 		userChoices := ""
 		println("enter your choice: rock, paper, or scissors (type exit to quit)")
+		computerChoice := choices[rand.Intn(len(choices))]
 		fmt.Scanln(&userChoices)
 		isValidChoice := false
 		for _, choice := range choices {
@@ -29,7 +29,7 @@ func main() {
 				continue
 			}
 		}
-		computerChoice := choices[rand.Intn(len(choices))]
+
 		if userChoices == computerChoice {
 			println("it's a tie!")
 		}
